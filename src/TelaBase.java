@@ -1,17 +1,16 @@
 import javax.swing.*;
-import java.awt.*;
 import java.io.Serial;
 
-public class Tela extends JFrame {
+public class TelaBase extends JFrame {
     @Serial
     private static final long serialVersionUID = 1L;
-    public Tela() {
+    public TelaBase() {
         setTitle("Snack Game");
         setSize(600,400); // tamanho da tela
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
         setResizable(false); //altera tamanho da tela
-        setIconImage(new ImageIcon("res/img/icon.png").getImage());
+        setIconImage(new ImageIcon("res/imgs/icon.png").getImage());
     }
 }
