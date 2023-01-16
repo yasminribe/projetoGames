@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class GamePanel extends JPanel {
-     private static final long serialVersionUID = 1L;
+
      private Cobrinha cobrinha;
      private Timer timer;
      private int velocidade;

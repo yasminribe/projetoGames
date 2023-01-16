@@ -36,6 +36,11 @@ public class Cobrinha {
     }
 
     public void atualizar(int direcao) {
+        //move o corpo adc um a mais no final
+        for (int i = this.cobrinha.size() - 1; i > 0 ; i--){
+            this.cobrinha.get(i).mover(this.cobrinha.get(i-1).getX(),this.cobrinha.get(i-1).getY());
+        }
+
         //movendo apenas a cabeça
         switch (direcao) {
             case CIMA:
@@ -52,9 +57,6 @@ public class Cobrinha {
                 break;
 
         }
-        //move o corpo adc um a mais no final
-        for (int i = this.cobrinha.size() - 1; i > 0 ; i--){
-            this.cobrinha.get(i).mover(this.cobrinha.get(i-1).getX(),this.cobrinha.get(i-1).getY());
-        }
+
     }
 }
