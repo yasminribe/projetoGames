@@ -1,8 +1,14 @@
-import java.awt.*;
+
 
 public class TelaJogo extends TelaBase{
+
+    private static final long serialVersionUID = 1L;
+
     private GamePanel gamePanel;
+
     private  StatusPanel statusPanel;
+
+    private ControleTelaJogo controle;
 
     public TelaJogo() throws HeadlessException {
         super();
@@ -14,13 +20,11 @@ public class TelaJogo extends TelaBase{
         add(gamePanel);
         add(statusPanel);
 
-        gamePanel.setBackground(Color.BLACK);
-        statusPanel.setBackground(Color.YELLOW);
-
         ControleTelaJogo controle = new ControleTelaJogo(this);
 
         addKeyListener(controle);
         setVisible(true);
+        controle.iniciar();
 
     }
 
