@@ -2,7 +2,6 @@
 
 public class TelaJogo extends TelaBase{
 
-    private static final long serialVersionUID = 1L;
 
     private GamePanel gamePanel;
 
@@ -10,7 +9,7 @@ public class TelaJogo extends TelaBase{
 
     private ControleTelaJogo controle;
 
-    public TelaJogo() throws HeadlessException {
+    public TelaJogo() {
         super();
         gamePanel = new GamePanel();
         gamePanel.setBounds(0,0,480,480);

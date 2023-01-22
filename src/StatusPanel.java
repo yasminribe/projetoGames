@@ -21,7 +21,6 @@ public class StatusPanel extends JPanel {
         vida2.setIcon(new ImageIcon("res/img/vida.png"));
         vida2.setBounds(55,30,40,40);
         vida3 = new JLabel();
-
         vida3.setIcon(new ImageIcon("res/img/vida.png"));
         vida3.setBounds(100,30,40,40);
 
