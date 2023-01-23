@@ -24,16 +24,18 @@ public class ControleTelaJogo implements KeyListener, Runnable {
         direito = true;
         pausado = true;
         loop = new Thread(this);
+        atualizarMissao();
 
 
     }
+
     public void iniciar() {
         pausado = false;
         tela.getGamePanel().getTimer().start();
         loop.start();
     }
 
-    public  void atualizar() {
+    public void atualizar() {
         if (cima) {
             tela.getGamePanel().getCobrinha().atualizar(Cobrinha.CIMA);
         } else if (baixo) {
@@ -44,39 +46,46 @@ public class ControleTelaJogo implements KeyListener, Runnable {
             tela.getGamePanel().getCobrinha().atualizar(Cobrinha.DIREITO);
         }
     }
+
     private void voltarMenu() {
         stop();
         ControleTelaMenu.mostraTelaMenu();
         this.tela.setVisible(false);
         this.tela.dispose();
     }
+
     public void stop() {
         pausado = true;
         tela.getGamePanel().getTimer().stop();
     }
 
     // colizão
-private boolean colidiu(Elemento a , Elemento b){
-if (a.getX() == b.getX() && a.getY() == b.getY()){
-    return true;
-}else {
-    return false;
-}
-}
-    public void run() {
-        while (!pausado) {
-            try {
-                Thread.sleep(1000 / 5);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+    private boolean colidiu(Elemento a, Elemento b) {
+        if (a.getX() == b.getX() && a.getY() == b.getY()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public void atualizarMissao() {
+        tela.getGamePanel().getMissao().gerarMissao();
+        tela.getStatusPanel().getMissao().setText(tela.getGamePanel().getMissao().pegarMissao());
+    }
+    private void verificarColisao() {
+        for (Alvo alvo : tela.getGamePanel().getMissao().getAlvos()) {
+            if (colidiu(tela.getGamePanel().getCobrinha().getCobrinha().get(0), alvo)) {
+                if (tela.getGamePanel().getMissao().verificarResultado(alvo.getConteudo())) {
+                    atualizarMissao();
+                }
             }
-            atualizar();
         }
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
 
+    }
 
-    // pressiona tecla
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP && !baixo) {
@@ -98,17 +107,21 @@ if (a.getX() == b.getX() && a.getY() == b.getY()){
         }
     }
 
-    // solta a tecla
     @Override
     public void keyReleased(KeyEvent e) {
 
     }
 
-    // quando esta digitando
     @Override
-    public void keyTyped(KeyEvent e) {
-
+    public void run() {
+        while (!pausado) {
+            try {
+                Thread.sleep(1000 / 5);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            atualizar();
+            verificarColisao();
+        }
     }
-
-
 }

@@ -16,4 +16,12 @@ public class Alvo extends Elemento{
     g.setColor(Color.BLACK);
     g.drawString(String.valueOf(conteudo),getX(),getY()+14);
     }
+
+    public int getConteudo() {
+        return conteudo;
+    }
+
+    public void setConteudo(int conteudo) {
+        this.conteudo = conteudo;
+    }
 }
