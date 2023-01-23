@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TelaBase extends JFrame {
-    public TelaBase() throws HeadlessException {
+    public TelaBase() {
         setTitle("Snake Game");
         setSize(640,400);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);

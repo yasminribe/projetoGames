@@ -59,4 +59,8 @@ public class Cobrinha {
         }
 
     }
+
+    public ArrayList<Elemento> getCobrinha() {
+        return cobrinha;
+    }
 }

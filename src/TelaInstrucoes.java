@@ -5,7 +5,7 @@ public class TelaInstrucoes extends TelaBase{
 
     private JButton voltar;
 
-    public TelaInstrucoes() throws HeadlessException {
+    public TelaInstrucoes() {
         super();
 
         JLabel lb1 = new JLabel("Instruções");

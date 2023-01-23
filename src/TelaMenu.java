@@ -6,7 +6,7 @@ public class TelaMenu extends TelaBase{
     private JButton instrucoes;
     private JButton sair;
 
-    public TelaMenu() throws HeadlessException {
+    public TelaMenu() {
         super();
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);

@@ -8,7 +8,7 @@ public class StatusPanel extends JPanel {
     private  JLabel vida3;
 
     private  JLabel missao;
-    private  JButton voltar;
+
 
     public StatusPanel() {
         setLayout(null);
@@ -27,8 +27,6 @@ public class StatusPanel extends JPanel {
         missao = new JLabel();
         missao.setBounds(20,250,150,20);
 
-        voltar = new JButton("voltar");
-        voltar.setBounds(30,400,80,30);
 
         JLabel vidas = new JLabel("vidas");
         vidas.setBounds(50,10,60,20);
@@ -42,7 +40,6 @@ public class StatusPanel extends JPanel {
         add(vida3);
         add(m);
         add(missao);
-        add(voltar);
     }
     public void setVidas (int vidas){
         switch (vidas){
@@ -71,9 +68,6 @@ public class StatusPanel extends JPanel {
         return missao;
     }
 
-    public JButton getVoltar() {
-        return voltar;
-    }
 
 
 }
